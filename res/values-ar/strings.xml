@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">التطبيق وجبة</string>
+
+    <string name="no_data">لا توجد معلومات</string>
+    <string name="back">ظهر</string>
+
+    <string name="update">النسخة الحالية</string>
+
+    <string name="dev_note">تحقيق التنمية</string>
+    <string name="share">شارك</string>
+    <string name="sendEmailtoDev">تقرير شيء إلى مطور</string>
+
+    <string name="download_data">تحميل البيانات وجبة</string>
+    <string name="download_description">
+        تحميل معلومات
+        \n
+        البيانات لديك بعض المعلومات جبة يومية عن مدرستنا.
+        \n
+        هل ترغب في تحميل البرنامج؟
+        \n
+        \n
+        (البيانات يستغرق سوى كمية قليلة، لذلك لا داعي للقلق حول رسوم البيانات الخاصة بك.)
+    </string>
+    <string name="download_success">تحميل نجاح</string>
+    <string name="download_fail">تحميل فشل</string>
+
+    <string name="push_noti_title">إعلامالتطبيق وجبة</string>
+
+    <string name="breakfast">إفطار</string>
+    <string name="lunch">غداء</string>
+    <string name="dinner">عشاء</string>
+    <string name="noMeal">No Meal</string>
+
+    <string name="date">تاريخ</string>
+    <string name="meal_info">معلومات وجبة</string>
+
+    <string name="title">لقب</string>
+    <string name="msg">رسالة أخطرت</string>
+
+    <string name="date_format">d يوم M شهر</string>
+
+    <string name="app_info">معلومات التطبيق</string>
+    <string name="exit">خروج</string>
+
+    <string name="setting">تجهيز الطعام</string>
+    <string name="application_destroyed">وقد دمرت التطبيق.</string>
+    <string name="loading">تحميل الموارد.</string>
+    <string name="loading_fail">تفشل لتحميل</string>
+
+    <string name="push_log">دفع الإخطار</string>
+    <string name="checkInternet">يرجى التحقق من حالة الشبكة الخاصة بك.</string>
+
+    <string-array name="day_of_week">
+        <item>يوم الاثنين</item>
+        <item>الثلاثاء</item>
+        <item>الأربعاء</item>
+        <item>الخميس</item>
+        <item>الجمعة</item>
+        <item>السبت</item>
+        <item>الأحد</item>
+    </string-array>
+
+    <string-array name="month">
+        <item>يناير</item>
+        <item>فبراير</item>
+        <item>مارس</item>
+        <item>أبريل</item>
+        <item>مايو</item>
+        <item>يونيو</item>
+        <item>يوليو</item>
+        <item>أغسطس</item>
+        <item>سبتمبر</item>
+        <item>أكتوبر</item>
+        <item>نوفمبر</item>
+        <item>ديسمبر</item>
+    </string-array>
+</resources>

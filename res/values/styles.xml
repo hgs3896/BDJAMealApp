@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="MainActivityStyle">
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">3dp</item>
+    </style>
+
+    <style name="ItemLayoutStyle">
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:padding">2dp</item>
+    </style>
+
+    <dimen name="Title">20sp</dimen>
+    <dimen name="Subject">18sp</dimen>
+
+
+</resources>

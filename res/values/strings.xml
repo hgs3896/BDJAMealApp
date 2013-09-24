@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Bundang Jung Ang High School</string>
+
+    <string name="no_data">No Data</string>
+
+    <string name="btn_exit">Exit</string>
+    <string name="back">Back</string>
+
+    <string name="update">Update Version</string>
+
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="noMeal">No Meal</string>
+
+    <string name="dev_note">Development Notes</string>
+    <string name="share">Share</string>
+    <string name="sendEmailtoDev">Send an email to developer</string>
+
+    <string name="download_data">Download data</string>
+    <string name="download_description">
+        Download Information\n
+        The data have some daily meal information about our school.\n
+        Would you like to download it ?\n
+        \n
+        (The data take only a little amount, so you don\'t worry about your data fee.)
+    </string>
+    <string name="download_success">Download Success</string>
+    <string name="download_fail">Download Failed</string>
+
+    <string name="push_noti_title">BDJA High School Meal App Notification</string>
+
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+
+    <string name="date">Date</string>
+    <string name="meal_info">Meal Information</string>
+
+    <string name="title">Title</string>
+    <string name="msg">Message</string>
+
+    <string name="date_format">M / d</string>
+
+    <string name="application_destroyed">The application has been destroyed.</string>
+    <string name="loading">Loading Resources</string>
+    <string name="loading_fail">Fail to load</string>
+
+    <string name="push_log">Push Notifications</string>
+    <string name="checkInternet">Please check your network state.</string>
+
+    <string name="setting">Settings</string>
+    <string name="app_info">APP History</string>
+    <string name="exit">Exit</string>
+
+    <string-array name="day_of_week">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
+    <string-array name="month">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+    <string name="meal_xml_location">http://meal.brambean.com/data/bdja/meal.xml</string>
+
+</resources>

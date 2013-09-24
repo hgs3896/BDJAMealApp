@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:padding="5dp">
+
+    <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/titleImage"
+            android:scaleType="fitCenter"
+            android:src="@drawable/meal_app_icon"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:textSize="@dimen/Title"
+            android:layout_height="50dp"
+            android:gravity="left|center_vertical"
+            android:text="Title"
+            android:singleLine="true"
+            android:id="@+id/title" android:layout_toRightOf="@+id/titleImage"
+            android:layout_centerVertical="true"/>
+</RelativeLayout>

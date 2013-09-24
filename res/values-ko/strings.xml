@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">분당중앙고 급식앱</string>
+
+    <string name="no_data">정보없음</string>
+    <string name="back">뒤로</string>
+
+    <string name="update">현재 버전</string>
+
+    <string name="dev_note">개발 이력</string>
+    <string name="share">공유하기</string>
+    <string name="sendEmailtoDev">개발자에게 문의하기</string>
+
+    <string name="download_data">급식 정보 다운로드</string>
+    <string name="download_description">
+        다운로드정보\n
+        이 데이터에는 급식정보가 담겨져 있습니다.\n
+        데이터를 다운로드 하시겠습니까?\n
+        \n
+        (데이터의 크기가 작으므로 데이터 요금은 걱정하지 않으셔도 됩니다.)
+    </string>
+    <string name="download_success">다운로드 성공</string>
+    <string name="download_fail">다운로드 실패</string>
+
+    <string name="push_noti_title">분당중앙고등학교 급식앱 알림</string>
+
+    <string name="breakfast">아침</string>
+    <string name="lunch">점심</string>
+    <string name="dinner">저녁</string>
+    <string name="noMeal">식사 없음</string>
+
+    <string name="date">날짜</string>
+    <string name="meal_info">급식 정보</string>
+
+    <string name="title">제목</string>
+    <string name="msg">알림 내용</string>
+
+    <string name="date_format">M월 d일</string>
+
+    <string name="app_info">앱 정보</string>
+    <string name="exit">종료</string>
+
+    <string name="setting">설정</string>
+    <string name="application_destroyed">앱이 종료되었습니다</string>
+    <string name="loading">로딩중입니다</string>
+    <string name="loading_fail">로딩실패</string>
+
+    <string name="push_log">푸쉬 알림</string>
+    <string name="checkInternet">인터넷 연결 상태를 확인해주세요.</string>
+
+    <string-array name="day_of_week">
+        <item>월요일</item>
+        <item>화요일</item>
+        <item>수요일</item>
+        <item>목요일</item>
+        <item>금요일</item>
+        <item>토요일</item>
+        <item>일요일</item>
+    </string-array>
+
+    <string-array name="month">
+        <item>1월</item>
+        <item>2월</item>
+        <item>3월</item>
+        <item>4월</item>
+        <item>5월</item>
+        <item>6월</item>
+        <item>7월</item>
+        <item>8월</item>
+        <item>9월</item>
+        <item>10월</item>
+        <item>11월</item>
+        <item>12월</item>
+    </string-array>
+</resources>

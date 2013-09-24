@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="30dp">
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:id="@+id/upper"
+            >
+
+        <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imageButton"
+                android:layout_margin="5dp"
+                android:background="@drawable/meal_app_icon"
+                android:layout_centerVertical="true"
+                />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Title"
+                android:gravity="left|center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/imageButton"
+                android:textSize="@dimen/Title"
+                android:layout_margin="5dp"
+                android:id="@+id/title"/>
+    </RelativeLayout>
+
+
+    <ScrollView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView"
+            android:layout_below="@id/upper"
+            android:layout_marginTop="10dp">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_margin="5dp"
+                android:layout_height="match_parent"
+                android:text="Subject"
+                android:autoLink="all"
+                android:textSize="@dimen/Subject"
+                android:id="@+id/subject"
+                />
+    </ScrollView>
+
+</RelativeLayout>
