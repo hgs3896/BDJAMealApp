@@ -40,14 +40,11 @@ public class MealAppActivity extends SherlockFragmentActivity implements Calenda
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP, ActionBar.DISPLAY_SHOW_CUSTOM);
 
 
-        mListener = new ParsingListener();
 
+        mListener = new ParsingListener();
 
         if (!Utils.isAvailable(this))
             showActivity(DownloadActivity.class);
-
-        MealManager manager = new MealManager(this);
-        CustomToast.showString(this, "급식 갯수 : " + manager.size());
 
         // Register to Google Cloud Messaging Services.
         Utils.GoogleCloudMessaging.registerGCM(this);
@@ -116,13 +113,13 @@ public class MealAppActivity extends SherlockFragmentActivity implements Calenda
                 showActivity(year, month, date);
             }
         } catch (Exception e) {
-            ErrorManager.catchError("An error occurs at selecting date", e);
+            ErrorManager.catchError(e);
         }
     }
 
     public void addFragment(final Fragment newFragment) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (isDual)
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         else
@@ -172,7 +169,7 @@ public class MealAppActivity extends SherlockFragmentActivity implements Calenda
                 getSupportActionBar().setCustomView(ib);
             } else {
                 CustomToast.showRes(getBaseContext(), R.string.loading_fail);
-                ErrorManager.catchError("Parse Error", e);
+                ErrorManager.catchError(e);
             }
         }
     }

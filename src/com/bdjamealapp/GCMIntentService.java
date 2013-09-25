@@ -13,7 +13,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 
     @Override
     protected void onError(final Context arg0, String arg1) {
-        ErrorManager.catchError("An error occurs at GCM Service", new Exception(arg1));
+        ErrorManager.catchError(new Exception(arg1));
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.bdjamealapp.data;
 
+import android.database.Cursor;
+
 public class Meal {
 
     private String breakfast, lunch, dinner, date;
@@ -10,6 +12,23 @@ public class Meal {
     }
 
     ;
+
+    static public Meal getInstance(Cursor cs) {
+        if (cs == null) return null;
+
+        cs.moveToFirst();
+        Meal meal = new Meal();
+
+        if (cs.getCount() == 1) {
+            meal.setDate(cs.getString(cs.getColumnIndexOrThrow(MealDBHandler.MealEntry.COLUMN_NAME_DATE)));
+            meal.setMeal(Meal.MealType.BREAKFAST, cs.getString(cs.getColumnIndexOrThrow(MealDBHandler.MealEntry.COLUMN_NAME_BREAKFAST)));
+            meal.setMeal(Meal.MealType.LUNCH, cs.getString(cs.getColumnIndexOrThrow(MealDBHandler.MealEntry.COLUMN_NAME_LUNCH)));
+            meal.setMeal(Meal.MealType.DINNER, cs.getString(cs.getColumnIndexOrThrow(MealDBHandler.MealEntry.COLUMN_NAME_DINNER)));
+            cs.close();
+            return meal;
+        }
+        return null;
+    }
 
     public void setDate(final String date) {
         try {

@@ -76,7 +76,7 @@ public class GCMMessagePool {
                 db.close();
             }
         } catch (Exception e) {
-            ErrorManager.catchError("Error Caught at GCM Message Pool", e);
+            ErrorManager.catchError(e);
         }
 
     }

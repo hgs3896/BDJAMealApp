@@ -21,10 +21,12 @@ public class DetailActivity extends SherlockFragmentActivity implements ActionBa
             int month = getIntent().getExtras().getInt("month");
             int day = getIntent().getExtras().getInt("day");
 
+            Utils.Debug.assertNull(DetailFragment.newInstance(year, month, day));
             DetailFragment details = DetailFragment.newInstance(year, month, day);
+            Utils.Debug.assertNull(getSupportFragmentManager().beginTransaction());
             getSupportFragmentManager().beginTransaction().replace(R.id.content, details).commit();
         } catch (Exception e) {
-            ErrorManager.catchError("An error occurs at joining Detail fragment.", e);
+            ErrorManager.catchError(e);
         }
     }
 

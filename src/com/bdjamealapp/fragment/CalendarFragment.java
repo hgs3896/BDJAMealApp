@@ -83,6 +83,7 @@ public class CalendarFragment extends Fragment {
 
 
         if (savedInstanceState != null) {
+            year = (Integer) savedInstanceState.get("year");
             rMonth = (Integer) savedInstanceState.get("rMonth");
             sMonth = (Integer) savedInstanceState.get("sMonth");
             today = (Integer) savedInstanceState.get("today");
@@ -97,6 +98,7 @@ public class CalendarFragment extends Fragment {
     @Override
     public void onSaveInstanceState(final Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putInt("year", year);
         outState.putInt("rMonth", rMonth);
         outState.putInt("sMonth", sMonth);
         outState.putInt("today", today);

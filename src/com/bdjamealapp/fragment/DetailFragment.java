@@ -14,12 +14,14 @@ import com.bdjamealapp.data.Meal;
 import com.bdjamealapp.data.MealManager;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class DetailFragment extends Fragment {
 
     private ArrayList<String> items = new ArrayList<String>();
     private Meal meal;
     private static MealManager manager;
+    private int y, m, d;
 
     public DetailFragment() {
         items.add("없음");
@@ -30,34 +32,9 @@ public class DetailFragment extends Fragment {
     }
 
     public DetailFragment(final int year, final int month, final int day) {
-        manager = manager == null ? new MealManager(getActivity().getApplicationContext()) : manager;
-        meal = manager.findMeal(year, month, day);
-
-        if (meal != null) {
-            String[] a = meal.getBreakfast().split(",");
-            String[] b = meal.getLunch().split(",");
-            String[] c = meal.getDinner().split(",");
-
-            String buf;
-            items.add("조식");
-            for (String temp : a) {
-                buf = temp.trim();
-                if (!"".equals(buf))
-                    items.add(buf);
-            }
-            items.add("중식");
-            for (String temp : b) {
-                buf = temp.trim();
-                if (!"".equals(buf))
-                    items.add(buf);
-            }
-            items.add("석식");
-            for (String temp : c) {
-                buf = temp.trim();
-                if (!"".equals(buf))
-                    items.add(buf);
-            }
-        }
+        y = year;
+        m = month;
+        d = day;
     }
 
     @Override
@@ -72,9 +49,46 @@ public class DetailFragment extends Fragment {
 
     @Override
     public void onViewCreated(final View view, final Bundle savedInstanceState) {
-        ListView mListView = (ListView) view.findViewById(R.id.mealListView);
+        manager = new MealManager(getActivity().getApplicationContext());
+        meal = manager.findMeal(y, m, d);
 
-        if (savedInstanceState != null) items = savedInstanceState.getStringArrayList("items");
+        if (savedInstanceState != null) {
+            items = savedInstanceState.getStringArrayList("items");
+        } else {
+            String buf;
+
+            items.add("조식");
+            if (meal != null) {
+                String[] a = meal.getBreakfast().split(",");
+                for (String temp : a) {
+                    buf = temp.trim();
+                    if (!"".equals(buf))
+                        items.add(buf);
+                }
+            }
+
+            items.add("중식");
+            if (meal != null) {
+                String[] b = meal.getLunch().split(",");
+                for (String temp : b) {
+                    buf = temp.trim();
+                    if (!"".equals(buf))
+                        items.add(buf);
+                }
+            }
+
+            items.add("석식");
+            if (meal != null) {
+                String[] c = meal.getDinner().split(",");
+                for (String temp : c) {
+                    buf = temp.trim();
+                    if (!"".equals(buf))
+                        items.add(buf);
+                }
+            }
+        }
+
+        ListView mListView = (ListView) view.findViewById(R.id.mealListView);
 
         view.findViewById(R.id.shareBtn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,11 +97,24 @@ public class DetailFragment extends Fragment {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_SUBJECT, Utils.getString(getActivity(), R.string.app_name));
-                StringBuffer sb = new StringBuffer();
-                sb.append(meal.getYear()).append("/").append(meal.getMonth()).append("/").append(meal.getDate()).append("\n\n");
 
-                sb.append("점심 : ").append(meal.getLunch()).append("\n");
-                sb.append("저녁 : ").append(meal.getDinner());
+                StringBuffer sb = new StringBuffer();
+                try {
+                    sb.append(meal.getYear()).append("/").append(meal.getMonth()).append("/").append(meal.getDate()).append("\n\n");
+                } catch (Exception e) {
+                    sb.append(Calendar.getInstance().get(Calendar.YEAR)).append("/").append(Calendar.getInstance().get(Calendar.MONTH)).append("/").append(Calendar.getInstance().get(Calendar.DATE)).append("\n\n");
+                }
+
+                if (meal.getLunch() != null)
+                    sb.append("점심 : ").append(meal.getLunch()).append("\n");
+                else
+                    sb.append("점심 : ").append("없음").append("\n");
+
+                if (meal.getDinner() != null)
+                    sb.append("저녁 : ").append(meal.getDinner());
+                else
+                    sb.append("저녁 : ").append("없음").append("\n");
+
                 intent.putExtra(Intent.EXTRA_TEXT, sb.toString());
                 startActivity(intent);
             }

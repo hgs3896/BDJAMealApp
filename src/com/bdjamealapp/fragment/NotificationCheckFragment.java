@@ -29,7 +29,7 @@ public class NotificationCheckFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.noti_detail_fragment, container, false);
         TextView title = (TextView) v.findViewById(R.id.title);
         TextView subject = (TextView) v.findViewById(R.id.subject);
@@ -42,7 +42,7 @@ public class NotificationCheckFragment extends Fragment {
             cs.close();
             db.close();
         } catch (Exception e) {
-            ErrorManager.catchError("Fail to get items from DB", e);
+            ErrorManager.catchError(e);
         }
         return v;
     }

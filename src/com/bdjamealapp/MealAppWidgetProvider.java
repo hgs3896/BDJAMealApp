@@ -31,19 +31,26 @@ public class MealAppWidgetProvider extends AppWidgetProvider {
     static void update(final Context ct, final AppWidgetManager manager, final int[] ids) {
         RemoteViews rv = new RemoteViews(ct.getPackageName(), R.layout.widget_view);
 
-        if (Utils.isAvailable(ct)) {
+        if (Utils.isDBAvailable(ct)) {
             // Read the file and show
             Utils.parse(ct, null);
             Calendar cal = Calendar.getInstance();
             MealManager mealManager = new MealManager(ct);
-            Meal meal = new Meal();
             try {
-                meal = mealManager.findMeal(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE));
+                Meal meal = mealManager.findMeal(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1, cal.get(Calendar.DATE));
+                if (meal != null) {
+                    int code = Utils.isLunch();
+                    if (code == 1) {
+                        rv.setTextViewText(R.id.widget_tv, "중식 : " + meal.getLunch().trim());
+                    } else if (code == 0) {
+                        rv.setTextViewText(R.id.widget_tv, "석식:" + meal.getDinner().trim());
+                    }
+                } else {
+                    rv.setTextViewText(R.id.widget_tv, "준비된 급식이 없습니다.");
+                }
             } catch (Exception e) {
-
+                rv.setTextViewText(R.id.widget_tv, "Error");
             }
-            rv.setTextViewText(R.id.widget_tv, meal.toString());
-
         } else {
             rv.setTextViewText(R.id.widget_tv, ct.getString(R.string.no_data));
         }

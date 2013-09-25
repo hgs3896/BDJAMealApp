@@ -29,7 +29,6 @@ public class MealDBHandler {
         public static final String COLUMN_NAME_BREAKFAST = "breakfast";
         public static final String COLUMN_NAME_LUNCH = "lunch";
         public static final String COLUMN_NAME_DINNER = "dinner";
-        // public static final String COLUMN_TYPE_NULL = "not null";
     }
 
     private MealDBHandler(final Context ct) {
@@ -37,7 +36,7 @@ public class MealDBHandler {
         try {
             db = helper.getWritableDatabase();
         } catch (Exception e) {
-            ErrorManager.catchError("db", e);
+            ErrorManager.catchError(e);
         }
     }
 
@@ -81,20 +80,12 @@ public class MealDBHandler {
 
     public Cursor fetchAllMeals() {
         // String sortOrder = MealEntry.COLUMN_NAME_ENTRY_ID + " DESC";
-        Cursor c = db.query(MealEntry.TABLE_NAME, null, null, null, null, null, null, null);
-        return c;
+        return db.query(MealEntry.TABLE_NAME, null, null, null, null, null, null, null);
     }
 
     public Cursor fetchMeal(final String date) {
         String sortOrder = MealEntry.COLUMN_NAME_ENTRY_ID + " DESC";
-        Cursor c = null;
-
-        try {
-            c = db.query(MealEntry.TABLE_NAME, null, MealEntry.COLUMN_NAME_DATE + " LIKE ?", new String[]{date}, null, null, sortOrder);
-        } catch (Exception e) {
-            ErrorManager.catchError("MealDBHandler#fetchMeal", e);
-        }
-        return c;
+        return db.query(MealEntry.TABLE_NAME, null, MealEntry.COLUMN_NAME_DATE + " LIKE ?", new String[]{date}, null, null, sortOrder);
     }
 
     public boolean updateMeal(final String rowId, final String fieldName, final String value) {
@@ -110,13 +101,11 @@ public class MealDBHandler {
 
     public int getCount() {
         int size = 0;
-        try {
-            Cursor cursor = fetchAllMeals();
-            size = cursor.getCount();
-            cursor.close();
-        } catch (Exception e) {
-            ErrorManager.catchError("MealDBHandler#getCount()", e);
-        }
+
+        Cursor cursor = fetchAllMeals();
+        size = cursor.getCount();
+        cursor.close();
+
         return size;
     }
 

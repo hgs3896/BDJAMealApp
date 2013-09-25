@@ -8,13 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
 import com.bdjamealapp.NotificationDetailActivity;
 import com.bdjamealapp.R;
 import com.bdjamealapp.data.PushDBHandler;
 import com.bdjamealapp.debug.ErrorManager;
+import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.internal.CardHeader;
+import it.gmariotti.cardslib.library.view.CardView;
 
 public class NotificationFragment extends Fragment {
 
@@ -42,7 +43,7 @@ public class NotificationFragment extends Fragment {
         try {
             db = PushDBHandler.open(getActivity());
         } catch (Exception e) {
-            ErrorManager.catchError("Failed to load SQL Data", e);
+            ErrorManager.catchError(e);
         }
 
         ListView lv = (ListView) v.findViewById(R.id.notiListView);
@@ -78,8 +79,9 @@ public class NotificationFragment extends Fragment {
         }
 
         private class ViewHolder {
-            public ImageButton image;
-            public TextView tv;
+            public CardView cardView;
+            public Card card;
+            public CardHeader header;
         }
 
         @Override
@@ -108,11 +110,26 @@ public class NotificationFragment extends Fragment {
             ViewHolder vh;
 
             if (view == null) {
-                view = inflater.inflate(R.layout.push_msg_item_layout, viewGroup, false);
+                view = inflater.inflate(R.layout.push_msg_item_layout, null, false);
+
                 vh = new ViewHolder();
-                vh.image = (ImageButton) view.findViewById(R.id.titleImage);
-                vh.tv = (TextView) view.findViewById(R.id.title);
+
+                //Create a Card
+                vh.card = new Card(getActivity().getApplicationContext());
+
+                //Create a CardHeader
+                vh.header = new CardHeader(getActivity().getApplicationContext());
+
+                //Add Header to card
+                vh.card.addCardHeader(vh.header);
+
+                //Set card in the cardView
+                vh.cardView = (CardView) view.findViewById(R.id.carddemo);
+
+                vh.cardView.setCard(vh.card);
+
                 view.setTag(vh);
+
             } else {
                 vh = (ViewHolder) view.getTag();
             }
@@ -127,15 +144,18 @@ public class NotificationFragment extends Fragment {
                 title = cs.getString(2);
                 cs.close();
             } catch (Exception e) {
-                ErrorManager.catchError("Failed to load SQL Data", e);
+                ErrorManager.catchError(e);
             }
 
-            vh.tv.setText(title);
+            vh.header.setTitle(title);
 
+            /*
             if ("n".equals(cmd))
-                vh.image.setImageResource(R.drawable.navigation_refresh);
+
+                        setImageResource(R.drawable.navigation_refresh);
             else if ("ud".equals(cmd))
                 vh.image.setImageResource(R.drawable.content_save);
+                */
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
