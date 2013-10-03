@@ -3,6 +3,7 @@ package com.bdjamealapp.fragment;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
+import com.bdjamealapp.MealAppActivity;
 import com.bdjamealapp.R;
 
 import java.util.Calendar;
@@ -78,9 +80,14 @@ public class CalendarFragment extends Fragment {
     @Override
     public void onViewCreated(final View view, final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ColorDrawable d = new ColorDrawable();
+        d.setLevel(5);
+        d.setColor(MealAppActivity.main_color);
+
+        view.setBackground(d);
+
         titleView = (TextView) view.findViewById(R.id.cal_textView);
         calendarView = (GridView) view.findViewById(R.id.cal_gridView);
-
 
         if (savedInstanceState != null) {
             year = (Integer) savedInstanceState.get("year");
@@ -139,6 +146,7 @@ public class CalendarFragment extends Fragment {
             } else {
                 tv.setText(day + "");
                 if (rMonth == month && day == today) tv.setTextColor(Color.RED);
+                else tv.setTextColor(Color.WHITE);
                 tv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(final View view) {
@@ -146,7 +154,6 @@ public class CalendarFragment extends Fragment {
                     }
                 });
             }
-
             return tv;
         }
     }

@@ -2,6 +2,7 @@ package com.bdjamealapp;
 
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -11,12 +12,13 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-import com.bdjamealapp.data.MealManager;
 import com.bdjamealapp.debug.ErrorManager;
 import com.bdjamealapp.fragment.CalendarFragment;
 import com.bdjamealapp.fragment.DetailFragment;
 import com.bdjamealapp.fragment.NotificationFragment;
 import com.bdjamealapp.ui.CustomToast;
+
+import java.util.Random;
 
 
 public class MealAppActivity extends SherlockFragmentActivity implements CalendarFragment.OnCalendarListener {
@@ -24,6 +26,7 @@ public class MealAppActivity extends SherlockFragmentActivity implements Calenda
     private boolean isDual;
     static public ParsingListener mListener;
     private int pos = 0;
+    public static int main_color, sub_color;
 
     @Override
     final public void onCreate(final Bundle savedInstanceState) {
@@ -39,7 +42,13 @@ public class MealAppActivity extends SherlockFragmentActivity implements Calenda
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP, ActionBar.DISPLAY_SHOW_CUSTOM);
 
-
+        final int resId1[] = {R.color.red, R.color.orange, R.color.green, R.color.blue, R.color.purple};
+        final int resId2[] = {R.color.more_red, R.color.more_orange, R.color.more_green, R.color.more_blue, R.color.more_purple};
+        Random r = new Random(System.currentTimeMillis());
+        int c = r.nextInt(5);
+        main_color = getResources().getColor(resId1[c]);
+        sub_color = getResources().getColor(resId2[c]);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(main_color));
 
         mListener = new ParsingListener();
 

@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.fima.cardsui.objects.Card;
 import com.bdjamealapp.R;
+import com.fima.cardsui.objects.Card;
 
 public class MyImageCard extends Card {
 
