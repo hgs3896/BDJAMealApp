@@ -12,11 +12,11 @@ public class PushDBHandler {
     private PushDBManager helper;
     private SQLiteDatabase db;
 
-    static final String TABLE = "pushLog";
-    static final String ID = "_id";
-    static final String TYPE = "type";
-    static final String TITLE = "title";
-    static final String MSG = "msg";
+    public static final String TABLE = "pushLog";
+    public static final String ID = "_id";
+    public static final String TYPE = "type";
+    public static final String TITLE = "title";
+    public static final String MSG = "msg";
 
     private PushDBHandler(final Context ct) {
         helper = new PushDBManager(ct);
@@ -48,7 +48,7 @@ public class PushDBHandler {
     }
 
     public Cursor selectAll() throws SQLException {
-        // Cursor cursor = db.query(true, TABLE, new String[]{ID, TYPE, TITLE, MSG}, null, null, null, null, "desc", null);
+        // Cursor cursor = db.query(true, TABLE, new String[]{ID, TYPE, TITLE, MSG}, null, null, null, null, null, null);
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE, null);
         if (cursor != null)
             cursor.moveToFirst();

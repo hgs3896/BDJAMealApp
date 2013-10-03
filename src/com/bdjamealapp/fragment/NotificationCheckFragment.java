@@ -1,6 +1,6 @@
 package com.bdjamealapp.fragment;
 
-import android.database.Cursor;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,42 +8,41 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.bdjamealapp.R;
-import com.bdjamealapp.data.PushDBHandler;
-import com.bdjamealapp.debug.ErrorManager;
 
 public class NotificationCheckFragment extends Fragment {
+
+    private Bundle bundle;
+    private String title, desc;
 
     public NotificationCheckFragment() {
 
     }
 
-    public NotificationCheckFragment(final int n, final int pos) {
-        this.pos = pos;
-        this.n = n;
+    public NotificationCheckFragment(final Bundle bundle) {
+        this.bundle = bundle;
     }
 
-    private int n = 0, pos = 0;
-
-    static public NotificationCheckFragment newInstace(final int n, final int pos) {
-        return new NotificationCheckFragment(n, pos);
+    static public NotificationCheckFragment newInstace(final Bundle data) {
+        return new NotificationCheckFragment(data);
     }
 
     @Override
-    public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState){
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.noti_detail_fragment, container, false);
-        TextView title = (TextView) v.findViewById(R.id.title);
+
+        title = bundle.getString("title");
+        desc = bundle.getString("content");
+        int color = bundle.getInt("color");
+
+        TextView titleView = (TextView) v.findViewById(R.id.title);
         TextView subject = (TextView) v.findViewById(R.id.subject);
 
-        try {
-            PushDBHandler db = PushDBHandler.open(getActivity());
-            Cursor cs = db.select(n - pos);
-            title.setText(cs.getString(2));
-            subject.setText(cs.getString(3));
-            cs.close();
-            db.close();
-        } catch (Exception e) {
-            ErrorManager.catchError(e);
-        }
+        titleView.setText(title);
+        titleView.setTextColor(color);
+        subject.setText(desc);
+
+        getActivity().getActionBar().setBackgroundDrawable(new ColorDrawable(color));
+
         return v;
     }
 }

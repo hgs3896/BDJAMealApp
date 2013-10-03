@@ -34,7 +34,7 @@ public class GCMMessagePool {
             String msg = intent.getStringExtra("msg");
             String vib = intent.getStringExtra("vib");
 
-            if (receiver.contains("mealapp")) {
+            if (receiver.endsWith("mealapp")) {
                 if (vib.contains("1") || vib.contains("true"))
                     vibrator.vibrate(1000);
 

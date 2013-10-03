@@ -12,11 +12,8 @@ public class NotificationDetailActivity extends SherlockFragmentActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(com.bdjamealapp.R.string.push_log);
-        int n, pos;
-        n = pos = 0;
-        n = savedInstanceState != null ? savedInstanceState.getInt("n") : n;
-        pos = savedInstanceState != null ? savedInstanceState.getInt("pos") : n;
-        getSupportFragmentManager().beginTransaction().replace(android.R.id.content, NotificationCheckFragment.newInstace(n, pos)).commit();
+
+        getSupportFragmentManager().beginTransaction().replace(android.R.id.content, NotificationCheckFragment.newInstace(getIntent().getExtras().getBundle("data"))).commit();
     }
 
     @Override

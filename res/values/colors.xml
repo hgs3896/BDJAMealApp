@@ -9,4 +9,16 @@
     <drawable name="focused">#FF5500</drawable>
     <drawable name="selected">#FF00FF</drawable>
 
+    <color name="blue">#33B5E5</color>
+    <color name="purple">#AA66CC</color>
+    <color name="green">#99CC00</color>
+    <color name="orange">#FFBB33</color>
+    <color name="red">#FF4444</color>
+
+    <color name="more_blue">#0099CC</color>
+    <color name="more_purple">#9933CC</color>
+    <color name="more_green">#669900</color>
+    <color name="more_orange">#FF8800</color>
+    <color name="more_red">#CC0000</color>
+
 </resources>
