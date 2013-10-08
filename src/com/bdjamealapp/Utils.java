@@ -4,6 +4,7 @@ package com.bdjamealapp;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.util.Log;
 import com.bdjamealapp.data.MealManager;
@@ -102,6 +103,9 @@ public class Utils {
             // Read the file and show
             XMLParser parser = new XMLParser(ct, new String(FileManager.load(ct, "meal.xml")));
             parser.setParsedListener(mListener);
+            MealManager manager = new MealManager(ct);
+            manager.clearMeals();
+            manager = null;
             parser.execute((Void) null);
             return true;
         }
@@ -110,6 +114,23 @@ public class Utils {
 
     static final public String getString(final Context ct, final int resId) {
         return ct.getResources().getString(resId);
+    }
+
+    /**
+     * @param color 색상 조절기
+     * @param hue   색상
+     * @param sat   채도
+     * @param val   명도
+     * @return 변환된 색상
+     */
+    public static int colorize(int color, float hue, float sat, float val) {
+        float[] hsv = new float[3];       //array to store HSV values
+        Color.colorToHSV(color, hsv); //get original HSV values of pixel
+        hsv[0] += hue;                //add the shift to the HUE of HSV array
+        hsv[0] %= 360;                //confines hue to values:[0,360]
+        hsv[1] += sat;
+        hsv[2] += val;
+        return Color.HSVToColor(Color.alpha(color), hsv);
     }
 
 }

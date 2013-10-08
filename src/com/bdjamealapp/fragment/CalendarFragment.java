@@ -15,6 +15,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 import com.bdjamealapp.MealAppActivity;
 import com.bdjamealapp.R;
+import com.bdjamealapp.Utils;
 
 import java.util.Calendar;
 
@@ -80,10 +81,10 @@ public class CalendarFragment extends Fragment {
     @Override
     public void onViewCreated(final View view, final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ColorDrawable d = new ColorDrawable();
-        d.setLevel(5);
-        d.setColor(MealAppActivity.main_color);
 
+        /* Coloring Background */
+        ColorDrawable d = new ColorDrawable();
+        d.setColor(Utils.colorize(MealAppActivity.main_color, 5, -0.33f, 0));
         view.setBackground(d);
 
         titleView = (TextView) view.findViewById(R.id.cal_textView);
@@ -140,19 +141,23 @@ public class CalendarFragment extends Fragment {
         public View getView(final int pos, final View view, final ViewGroup viewGroup) {
             final TextView tv = new TextView(getActivity());
             tv.setGravity(Gravity.CENTER);
+            // ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            // tv.setLayoutParams(params);
+
             final int day = (pos + 1) - firstDoW + 1;
             if (pos + 1 < firstDoW) {
                 tv.setText("");
             } else {
                 tv.setText(day + "");
                 if (rMonth == month && day == today) tv.setTextColor(Color.RED);
-                else tv.setTextColor(Color.WHITE);
+                else tv.setTextColor(Color.DKGRAY);
                 tv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(final View view) {
                         mListener.onDateSelected(year, month, day);
                     }
                 });
+                tv.setBackgroundResource(R.drawable.date_click_selector);
             }
             return tv;
         }

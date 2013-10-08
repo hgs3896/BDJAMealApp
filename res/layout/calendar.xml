@@ -3,6 +3,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:padding="16dp"
         >
 
     <TextView
@@ -11,23 +12,25 @@
             android:text="Calendar"
             android:textColor="#FFFFFF"
             android:id="@+id/cal_textView"
-            android:textSize="20sp"
+            android:textSize="23sp"
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:layout_alignParentTop="true"
             android:layout_margin="5dp"
             />
+
     <GridView
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:verticalSpacing="30dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
+
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="30dp"
             android:numColumns="7"
             android:requiresFadingEdge="vertical"
+
             android:id="@+id/cal_gridView"
-            android:layout_below="@+id/cal_textView"/>
+            android:layout_below="@+id/cal_textView"
+            android:layout_alignParentBottom="true"/>
 </RelativeLayout>
