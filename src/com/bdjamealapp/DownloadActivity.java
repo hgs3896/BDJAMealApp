@@ -2,11 +2,11 @@ package com.bdjamealapp;
 
 import android.R;
 import android.os.Bundle;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import com.bdjamealapp.connection.DownloadManager;
 import com.bdjamealapp.fragment.DownloadFragment;
 
-public class DownloadActivity extends SherlockFragmentActivity {
+public class DownloadActivity extends ActionBarActivity {
 
     static public DownloadListener mListener;
 

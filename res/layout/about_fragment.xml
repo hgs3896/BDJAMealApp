@@ -5,7 +5,7 @@
               android:padding="10dp"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/abs__bright_foreground_disabled_holo_dark">
+        >
     <TextView
             android:layout_width="wrap_content"
             android:layout_margin="10dp"
@@ -20,7 +20,6 @@
             android:layout_height="wrap_content"
             android:textColor="@color/White"
             android:transcriptMode="alwaysScroll"
-            android:background="@color/abs__background_holo_light"
             android:alwaysDrawnWithCache="true"
             android:id="@+id/verListView" android:layout_gravity="center"/>
 </LinearLayout>

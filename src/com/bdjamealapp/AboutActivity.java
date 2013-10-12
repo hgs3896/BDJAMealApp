@@ -1,11 +1,11 @@
 package com.bdjamealapp;
 
 import android.os.Bundle;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
+import android.view.MenuItem;
 import com.bdjamealapp.fragment.AboutFragment;
 
-public class AboutActivity extends SherlockFragmentActivity {
+public class AboutActivity extends ActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,3 +25,4 @@ public class AboutActivity extends SherlockFragmentActivity {
         return true;
     }
 }
+

@@ -1,12 +1,13 @@
 package com.bdjamealapp;
 
 import android.R;
+import android.content.ContentResolver;
 import android.os.Bundle;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
+import android.view.MenuItem;
 import com.bdjamealapp.fragment.NotificationFragment;
 
-public class NotificationActivity extends SherlockFragmentActivity {
+public class NotificationActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class NotificationActivity extends SherlockFragmentActivity {
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
+
             case android.R.id.home:
                 finish();
                 break;

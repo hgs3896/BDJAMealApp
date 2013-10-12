@@ -1,11 +1,11 @@
 package com.bdjamealapp;
 
 import android.os.Bundle;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
+import android.view.MenuItem;
 import com.bdjamealapp.fragment.NotificationCheckFragment;
 
-public class NotificationDetailActivity extends SherlockFragmentActivity {
+public class NotificationDetailActivity extends ActionBarActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

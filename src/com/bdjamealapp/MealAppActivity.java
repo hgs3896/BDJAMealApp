@@ -6,12 +6,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 import com.bdjamealapp.debug.ErrorManager;
 import com.bdjamealapp.fragment.CalendarFragment;
 import com.bdjamealapp.fragment.DetailFragment;
@@ -21,7 +21,7 @@ import com.bdjamealapp.ui.CustomToast;
 import java.util.Random;
 
 
-public class MealAppActivity extends SherlockFragmentActivity implements CalendarFragment.OnCalendarListener {
+public class MealAppActivity extends ActionBarActivity implements CalendarFragment.OnCalendarListener {
 
     private boolean isDual;
     static public ParsingListener mListener;
@@ -88,7 +88,7 @@ public class MealAppActivity extends SherlockFragmentActivity implements Calenda
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        getSherlock().getMenuInflater().inflate(R.menu.test_menu, menu);
+        getMenuInflater().inflate(R.menu.test_menu, menu);
         return true;
     }
 

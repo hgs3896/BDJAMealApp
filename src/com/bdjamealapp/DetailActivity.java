@@ -2,13 +2,13 @@ package com.bdjamealapp;
 
 import android.R;
 import android.os.Bundle;
-import com.actionbarsherlock.ActionBarSherlock;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.PopupMenu;
+import android.view.MenuItem;
 import com.bdjamealapp.debug.ErrorManager;
 import com.bdjamealapp.fragment.DetailFragment;
 
-public class DetailActivity extends SherlockFragmentActivity implements ActionBarSherlock.OnMenuItemSelectedListener {
+public class DetailActivity extends ActionBarActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
