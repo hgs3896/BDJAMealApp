@@ -1,7 +1,6 @@
 package com.bdjamealapp;
 
 import android.R;
-import android.content.ContentResolver;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;

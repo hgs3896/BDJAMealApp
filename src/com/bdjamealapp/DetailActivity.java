@@ -3,7 +3,6 @@ package com.bdjamealapp;
 import android.R;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.PopupMenu;
 import android.view.MenuItem;
 import com.bdjamealapp.debug.ErrorManager;
 import com.bdjamealapp.fragment.DetailFragment;
