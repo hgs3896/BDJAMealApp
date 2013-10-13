@@ -88,7 +88,7 @@ public class MealAppActivity extends ActionBarActivity implements CalendarFragme
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        getMenuInflater().inflate(R.menu.test_menu, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
@@ -108,9 +108,10 @@ public class MealAppActivity extends ActionBarActivity implements CalendarFragme
                 break;
             case R.id.item3:
                 finish();
+            default:
                 break;
         }
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

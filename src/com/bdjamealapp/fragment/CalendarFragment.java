@@ -141,8 +141,6 @@ public class CalendarFragment extends Fragment {
         public View getView(final int pos, final View view, final ViewGroup viewGroup) {
             final TextView tv = new TextView(getActivity());
             tv.setGravity(Gravity.CENTER);
-            // ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            // tv.setLayoutParams(params);
 
             final int day = (pos + 1) - firstDoW + 1;
             if (pos + 1 < firstDoW) {

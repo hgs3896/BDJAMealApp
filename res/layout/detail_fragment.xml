@@ -14,10 +14,10 @@
             android:id="@+id/shareBtn"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"/>
-    <ListView
+    <com.fima.cardsui.views.CardUI
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/mealListView"
+            android:id="@+id/mealCardView"
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@id/shareBtn"
             />
