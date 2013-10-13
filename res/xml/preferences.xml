@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+    <PreferenceCategory android:title="기본 환경 설정">
+        <CheckBoxPreference android:defaultValue="false`"
+                android:key="use_menu_image_download"
+                android:title="메뉴 이미지 다운로드"
+                android:summary="메뉴 이미지 다운로드 기능을 사용합니다."/>
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

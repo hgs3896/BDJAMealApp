@@ -2,18 +2,23 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:showAsAction="ifRoom|withText"
+    <item android:showAsAction="withText"
           android:id="@+id/item1"
           android:icon="@drawable/action_about"
           android:title="@string/app_info"/>
 
-    <item android:showAsAction="ifRoom|withText"
+    <item android:showAsAction="withText"
           android:id="@+id/item2"
           android:icon="@drawable/navigation_refresh"
           android:title="@string/push_log"/>
 
-    <item android:showAsAction="ifRoom|withText"
+    <item android:showAsAction="withText"
           android:id="@+id/item3"
+          android:icon="@drawable/navigation_accept"
+          android:title="@string/setting"/>
+
+    <item android:showAsAction="withText"
+          android:id="@+id/item4"
           android:icon="@drawable/navigation_cancel"
           android:title="@string/exit"/>
 </menu>

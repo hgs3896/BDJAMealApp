@@ -27,16 +27,24 @@ import com.fima.cardsui.objects.Card;
 public class MyInternetImageCard extends Card {
 
     ImageData data;
-    boolean request = false;
+    boolean request = false, image_download = false;
     private LruCache<String, Object> cache;
 
     public MyInternetImageCard(String title, String desc) {
         super(title, desc);
         cache = new LruCache<String, Object>(4 * 1024 * 1024);
+        cache.put("title", title);
+        cache.put("desc", desc);
+    }
+
+    public MyInternetImageCard(String title, String desc, boolean image_download) {
+        this(title, desc);
+        this.image_download = image_download;
     }
 
     @Override
     public View getCardContent(final Context context) {
+
         View view = LayoutInflater.from(context).inflate(R.layout.card_im, null);
 
         Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(context, R.anim.anim1);
@@ -45,9 +53,6 @@ public class MyInternetImageCard extends Card {
         TextView tv1 = (TextView) view.findViewById(R.id.title);
         TextView tv2 = (TextView) view.findViewById(R.id.description);
         final ImageView iv = (ImageView) view.findViewById(R.id.img);
-
-        cache.put("title", title);
-        cache.put("desc", desc);
 
         tv1.setText((String) cache.get("title"));
         tv2.setText((String) cache.get("desc"));
@@ -69,14 +74,16 @@ public class MyInternetImageCard extends Card {
             }
         });
 
-        if (!request) {
-            Utils.Debug.log("시작");
-            new ImageFinder().addRequest(desc, handler);
-            request = true;
-        } else {
-            Utils.Debug.log("재시작");
-            data = (ImageData) cache.get("imgData");
-            if (data != null) setWebImage(context, iv);
+        if (image_download) {
+            if (!request) {
+                Utils.Debug.log("시작");
+                new ImageFinder().addRequest(desc, handler);
+                request = true;
+            } else {
+                Utils.Debug.log("재시작");
+                data = (ImageData) cache.get("imgData");
+                if (data != null) setWebImage(context, iv);
+            }
         }
 
         return view;
@@ -85,7 +92,7 @@ public class MyInternetImageCard extends Card {
     private void setWebImage(Context ct, ImageView iv) {
         AQuery aQuery = new AQuery(ct);
         final Bitmap bitmap = aQuery.getCachedImage(data.url);
-        new FaceChecker(bitmap).execute(null);
+        // new FaceChecker(bitmap).execute(null);
         aQuery.id(iv).image(data.url, true, true);
     }
 

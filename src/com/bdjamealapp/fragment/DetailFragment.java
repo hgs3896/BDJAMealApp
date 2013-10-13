@@ -1,13 +1,14 @@
 package com.bdjamealapp.fragment;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import com.bdjamealapp.R;
+import com.bdjamealapp.Utils;
 import com.bdjamealapp.data.Meal;
 import com.bdjamealapp.data.MealManager;
 import com.bdjamealapp.ui.MyInternetImageCard;
@@ -96,20 +97,25 @@ public class DetailFragment extends Fragment {
 
         CardUI mCardView = (CardUI) view.findViewById(R.id.mealCardView);
 
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+
+        boolean download_image = pref.getBoolean("use_menu_image_download", false);
+        Utils.Debug.log("현재 값 : " + download_image);
+
         int i, len;
         len = items1.size();
         for (i = 0; i < len; i++) {
-            mCardView.addCard(new MyInternetImageCard("조식", items1.get(i)));
+            mCardView.addCard(new MyInternetImageCard("조식", items1.get(i), download_image));
         }
 
         len = items2.size();
         for (i = 0; i < len; i++) {
-            mCardView.addCard(new MyInternetImageCard("중식", items2.get(i)));
+            mCardView.addCard(new MyInternetImageCard("중식", items2.get(i), download_image));
         }
 
         len = items3.size();
         for (i = 0; i < len; i++) {
-            mCardView.addCard(new MyInternetImageCard("석식", items3.get(i)));
+            mCardView.addCard(new MyInternetImageCard("석식", items3.get(i), download_image));
         }
 
         mCardView.refresh();

@@ -107,6 +107,9 @@ public class MealAppActivity extends ActionBarActivity implements CalendarFragme
                 // Pref
                 break;
             case R.id.item3:
+                showActivity(SettingActivity.class);
+                break;
+            case R.id.item4:
                 finish();
             default:
                 break;
