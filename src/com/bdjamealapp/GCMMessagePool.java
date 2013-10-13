@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import com.bdjamealapp.data.PushDBHandler;
 import com.bdjamealapp.debug.ErrorManager;
 import com.bdjamealapp.file.FileManager;
@@ -36,7 +37,8 @@ public class GCMMessagePool {
 
             if (receiver.endsWith("mealapp")) {
                 if (vib.contains("1") || vib.contains("true"))
-                    vibrator.vibrate(1000);
+                    if (PreferenceManager.getDefaultSharedPreferences(ct).getBoolean("push_vibrate", false))
+                        vibrator.vibrate(1000);
 
                 PushDBHandler db = PushDBHandler.open(ct);
 
