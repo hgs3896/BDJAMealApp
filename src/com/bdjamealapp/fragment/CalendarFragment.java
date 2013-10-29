@@ -82,10 +82,13 @@ public class CalendarFragment extends Fragment {
     public void onViewCreated(final View view, final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        int sdk = android.os.Build.VERSION.SDK_INT;
+        if(sdk >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
         /* Coloring Background */
         ColorDrawable d = new ColorDrawable();
         d.setColor(Utils.colorize(MealAppActivity.main_color, 5, -0.33f, 0));
         view.setBackground(d);
+        }
 
         titleView = (TextView) view.findViewById(R.id.cal_textView);
         calendarView = (GridView) view.findViewById(R.id.cal_gridView);

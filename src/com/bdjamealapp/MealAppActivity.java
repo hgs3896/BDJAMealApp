@@ -48,7 +48,11 @@ public class MealAppActivity extends ActionBarActivity implements CalendarFragme
         int c = r.nextInt(5);
         main_color = getResources().getColor(resId1[c]);
         sub_color = getResources().getColor(resId2[c]);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(main_color));
+        int sdk = android.os.Build.VERSION.SDK_INT;
+        if(sdk >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(main_color));
+        }
+
 
         mListener = new ParsingListener();
 

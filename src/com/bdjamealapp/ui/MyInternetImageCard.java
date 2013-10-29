@@ -28,7 +28,7 @@ public class MyInternetImageCard extends Card {
 
     ImageData data;
     boolean request = false, image_download = false;
-    private LruCache<String, Object> cache;
+    private LruCache<String, Object> cache; // map key and url
 
     public MyInternetImageCard(String title, String desc) {
         super(title, desc);
@@ -76,11 +76,11 @@ public class MyInternetImageCard extends Card {
 
         if (image_download) {
             if (!request) {
-                Utils.Debug.log("시작");
+                Utils.Debug.log("다운로드 시작");
                 new ImageFinder().addRequest(desc, handler);
                 request = true;
             } else {
-                Utils.Debug.log("재시작");
+                Utils.Debug.log("이미지 로드 재시작");
                 data = (ImageData) cache.get("imgData");
                 if (data != null) setWebImage(context, iv);
             }
