@@ -2,6 +2,7 @@ package com.bdjamealapp.data;
 
 import android.content.Context;
 import android.database.Cursor;
+import com.bdjamealapp.Utils;
 
 public class MealManager {
 
@@ -27,6 +28,7 @@ public class MealManager {
 
     public Meal findMeal(final int year, final int month, final int day) {
         String dateFormat = String.format("%d-%02d-%02d", year, month, day);
+        Utils.Debug.log(dateFormat);
         Cursor cs = db.fetchMeal(dateFormat);
         Meal meal = Meal.getInstance(cs);
         cs.close();

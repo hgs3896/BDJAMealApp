@@ -137,6 +137,7 @@ public class XMLParser extends AsyncTask<Void, Object, Void> {
                 try {
                     meal.setDate(date.get(i));
                     mealManager.addMeal(meal);
+                    Utils.Debug.log(meal.toString());
                 } catch (Exception e) {
                     publishProgress(SAVE_ERROR, e);
                 }

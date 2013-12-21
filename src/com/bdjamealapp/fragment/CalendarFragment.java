@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -150,14 +151,20 @@ public class CalendarFragment extends Fragment {
                 tv.setText("");
             } else {
                 tv.setText(day + "");
-                if (rMonth == month && day == today) tv.setTextColor(Color.RED);
-                else tv.setTextColor(Color.DKGRAY);
+                if (rMonth == month && day == today) {
+                    tv.setTextColor(Color.RED);
+                    tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f);
+                } else {
+                    tv.setTextColor(Color.DKGRAY);
+                }
+
                 tv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(final View view) {
                         mListener.onDateSelected(year, month, day);
                     }
                 });
+
                 tv.setBackgroundResource(R.drawable.date_click_selector);
             }
             return tv;

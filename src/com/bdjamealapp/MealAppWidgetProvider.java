@@ -19,8 +19,7 @@ public class MealAppWidgetProvider extends AppWidgetProvider {
     }
 
     @Override
-    public void onUpdate(final Context context, final AppWidgetManager appWidgetManager,
-                         final int[] appWidgetIds) {
+    public void onUpdate(final Context context, final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
         int i;
         for (i = 0; i < appWidgetIds.length; i++) {
             update(context, appWidgetManager, appWidgetIds);
@@ -33,7 +32,6 @@ public class MealAppWidgetProvider extends AppWidgetProvider {
 
         if (Utils.isDBAvailable(ct)) {
             // Read the file and show
-            Utils.parse(ct, null);
             Calendar cal = Calendar.getInstance();
             MealManager mealManager = new MealManager(ct);
             try {

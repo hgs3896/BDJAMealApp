@@ -80,6 +80,13 @@
         <item>December</item>
     </string-array>
 
+    <string-array name="update_list">
+        <item>7.0.8 : Fix Widget Support, Be Available to check update list, Fix simple bit of errors</item>
+        <item>7.0.7 : Fix the problem that the device had halted at Gingerbread</item>
+        <item>Developer : Ji Seong Ham, who is a Bundang Jungang High School Junior on this year wu..wu.. - Please give some supports..</item>
+        <item>Product period : 2012/3/6 ~ 2013/12/22, wow almost 2 years..</item>
+    </string-array>
+
     <string name="meal_xml_location">http://meal.brambean.com/data/bdja/meal.xml</string>
 
 </resources>

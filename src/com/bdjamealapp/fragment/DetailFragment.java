@@ -1,5 +1,6 @@
 package com.bdjamealapp.fragment;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -11,10 +12,12 @@ import com.bdjamealapp.R;
 import com.bdjamealapp.Utils;
 import com.bdjamealapp.data.Meal;
 import com.bdjamealapp.data.MealManager;
+import com.bdjamealapp.ui.CustomToast;
 import com.bdjamealapp.ui.MyInternetImageCard;
 import com.fima.cardsui.views.CardUI;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class DetailFragment extends Fragment {
 
@@ -54,6 +57,7 @@ public class DetailFragment extends Fragment {
 
     @Override
     public void onViewCreated(final View view, final Bundle savedInstanceState) {
+
         if (savedInstanceState != null) {
             items1 = savedInstanceState.getStringArrayList("items1");
             items2 = savedInstanceState.getStringArrayList("items2");
@@ -119,12 +123,14 @@ public class DetailFragment extends Fragment {
         }
 
         mCardView.refresh();
-    }
 
-        /*
         view.findViewById(R.id.shareBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
+                if(meal==null){
+                    CustomToast.showString(getActivity().getApplicationContext(), getActivity().getResources().getString(R.string.noMeal));
+                    return;
+                }
                 // Text 전송할 때
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
@@ -132,7 +138,7 @@ public class DetailFragment extends Fragment {
 
                 StringBuffer sb = new StringBuffer();
                 try {
-                    sb.append(meal.getYear()).append("/").append(meal.getMonth()).append("/").append(meal.getDate()).append("\n\n");
+                    sb.append(meal.getDate()).append("\n\n");
                 } catch (Exception e) {
                     sb.append(Calendar.getInstance().get(Calendar.YEAR)).append("/").append(Calendar.getInstance().get(Calendar.MONTH)).append("/").append(Calendar.getInstance().get(Calendar.DATE)).append("\n\n");
                 }
@@ -152,5 +158,4 @@ public class DetailFragment extends Fragment {
             }
         });
     }
-    */
 }

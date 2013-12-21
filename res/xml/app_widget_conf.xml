@@ -7,4 +7,4 @@
                     android:previewImage="@drawable/meal_app_icon"
                     android:resizeMode="horizontal|vertical"
                     android:widgetCategory="keyguard|home_screen"
-        />
+/>
